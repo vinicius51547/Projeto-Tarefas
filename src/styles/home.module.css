@@ -1,0 +1,68 @@
+.container {
+    background: linear-gradient(90deg, #000 0%, #021043 100%);
+    width: 100%;
+    height: calc(100vh - 76px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.logoContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero {
+    max-width: 480px;
+    object-fit: contain;
+    width: auto;
+    height: auto;
+}
+
+.title {
+    text-align: center;
+    margin: 30px;
+    color: #fff;
+    line-height: 150%;
+}
+
+.infoContent {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.box {
+    background-color: #fafafa;
+    padding: 14px 44px;
+    border-radius: 4px;
+    transition: transform 0.4s;
+    cursor: pointer;
+}
+
+.box:hover {
+    transform: scale(1.08);
+}
+
+@media screen and (max-width: 580px) {
+    .hero {
+        max-width: 80%;
+    }
+
+    .title {
+        font-size: 24px;
+    }
+
+    .infoContent {
+        flex-direction: column;
+    }
+
+    .box {
+        width: 80%;
+        margin-bottom: 14px;
+        text-align: center;
+    }
+}
