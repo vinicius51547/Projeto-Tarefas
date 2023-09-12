@@ -3,7 +3,7 @@
 }
 
 .content {
-    background-color: #0f0f0f;
+    background: linear-gradient(90deg, #000 0%, #021043 100%);
     width: 100%;
     display: flex;
     align-items: center;
@@ -21,6 +21,11 @@
 .title {
     color: #fff;
     margin-bottom: 8px;
+}
+
+.checkboxArea {
+    display: flex;
+    align-items: center;
 }
 
 .checkboxArea label {
@@ -65,6 +70,18 @@
 .taskContainer a {
     text-decoration: none;
     color: #0f0f0f;
+}
+
+.notFound {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-bottom: 10%;
+}
+
+.notFound .img {
+    height: 300px;
 }
 
 .task {

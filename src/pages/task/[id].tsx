@@ -1,11 +1,14 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
+import Head from 'next/head';
 import { useSession } from 'next-auth/react';
 import { GetServerSideProps } from 'next';
+import Image from 'next/image';
 import styles from './styles.module.css';
 import { db } from '@/services/firebaseConnection';
 import { FaTrash } from 'react-icons/fa';
 import { doc, collection, query, where, getDoc, addDoc, getDocs, deleteDoc } from 'firebase/firestore';
 import { TextArea } from '@/components/textarea';
+import notFound from '../../../public/img/notfound.svg';
 
 interface TaskProps {
     item: {
@@ -82,6 +85,9 @@ export default function Task({ item, allComments }: TaskProps) {
 
     return (
         <div className={styles.container}>
+            <Head>
+                <title>Painel de comentários</title>
+            </Head>
 
             <main className={styles.main}>
                 <h1>Tarefa</h1>
@@ -110,7 +116,16 @@ export default function Task({ item, allComments }: TaskProps) {
             <section className={styles.commentsContainer}>
                 <h2>Todos comentários</h2>
                 {comments.length === 0 && (
-                    <span>Nenhum comentário foi encontrado...</span>
+                     <div className={styles.notFound}>
+                     <Image
+                         className={styles.img}
+                         alt='Não encontrado'
+                         src={notFound}
+                         priority
+                     />
+                     <span>Nenhum comentário foi encontrado...</span>
+
+                 </div>
                 )}
 
                 {comments.map((item) => (

@@ -1,18 +1,24 @@
 .container {
     background: linear-gradient(90deg, #000 0%, #021043 100%);
     width: 100%;
-    height: calc(100vh - 76px);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-.logoContent {
+@media screen and (min-width: 875px) {
+    .container {
+        height: calc(100vh - 76px);
+    }
+}
+
+.main {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
+    max-width: 1024px;
+    width: 100%;
 }
 
 .hero {
@@ -29,6 +35,13 @@
     line-height: 150%;
 }
 
+.description {
+    text-align: center;
+    margin: 30px;
+    color: #fff;
+    line-height: 150%;
+}
+
 .infoContent {
     display: flex;
     align-items: center;
@@ -36,16 +49,19 @@
 }
 
 .box {
-    background-color: #fafafa;
-    padding: 14px 44px;
-    border-radius: 4px;
-    transition: transform 0.4s;
-    cursor: pointer;
+    padding: 20px 44px;
+    color: #fff;
+    /* font-size: 20px; */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
-.box:hover {
-    transform: scale(1.08);
+.box span {
+    padding-top: 5px;
 }
+
 
 @media screen and (max-width: 580px) {
     .hero {
@@ -60,9 +76,17 @@
         flex-direction: column;
     }
 
-    .box {
+    /* .box {
         width: 80%;
         margin-bottom: 14px;
         text-align: center;
+    } */
+}
+
+@media screen and (max-width: 875px) {
+    .main {
+        display: flex;
+        flex-wrap: wrap;
+        padding-top: 10%;
     }
 }

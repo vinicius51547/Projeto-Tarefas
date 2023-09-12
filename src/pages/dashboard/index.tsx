@@ -1,12 +1,14 @@
 import { GetServerSideProps } from 'next';
 import { ChangeEvent, FormEvent, useState, useEffect } from 'react';
 import styles from './styles.module.css';
+import Image from 'next/image';
 import Head from 'next/head';
 import { getSession } from 'next-auth/react';
 import { TextArea } from '../..//components/textarea';
-import { FiShare2 } from 'react-icons/fi';
+import { SlActionRedo } from 'react-icons/sl';
 import { FaTrash } from 'react-icons/fa';
 import Link from 'next/link';
+import notFound from '../../../public/img/notfound.svg';
 import { db } from '@/services/firebaseConnection';
 import { addDoc, collection, query, orderBy, where, onSnapshot, doc, deleteDoc } from 'firebase/firestore';
 
@@ -144,7 +146,15 @@ export default function Dashboard({ user }: HomeProps) {
                     <h1>Minhas Tarefas</h1>
 
                     {task.length === 0 && (
-                        <span>Nenhuma tarefa foi encontrado...</span>
+                        <div className={styles.notFound}>
+                            <Image
+                                className={styles.img}
+                                alt='Não encontrado'
+                                src={notFound}
+                                priority
+                            />
+                            <span>Nenhuma tarefa foi encontrado...</span>
+                        </div>
                     )}
 
                     {task.map((item) => (
@@ -155,7 +165,7 @@ export default function Dashboard({ user }: HomeProps) {
 
                                     {/* Botão de compartilhar */}
                                     <button className={styles.shareButton} onClick={() => handleShare(item.id)}>
-                                        <FiShare2
+                                        <SlActionRedo
                                             size={22}
                                             color='#3183ff'
                                         />
